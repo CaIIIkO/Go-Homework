@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option go_package = "/pb";
+
+package pvz;
+
+service PVZService {
+    rpc AddPvz(AddPvzRequest) returns (AddPvzResponse);
+    rpc GetPvzByID(GetPvzByIDRequest) returns (GetPvzByIDResponse);
+    rpc UpdatePvz(UpdatePvzRequest) returns (UpdatePvzResponse);
+    rpc DeletePvzByID(DeletePvzByIDRequest) returns (DeletePvzByIDResponse);
+}
+
+message AddPvzRequest {
+    string name = 1;
+    string address = 2;
+    string contact = 3;
+}
+
+message AddPvzResponse {
+    int64 id = 1;
+    string name = 2;
+    string address = 3;
+    string contact = 4;
+}
+
+message GetPvzByIDRequest {
+    int64 id = 1;
+}
+
+message GetPvzByIDResponse {
+    int64 id = 1;
+    string name = 2;
+    string address = 3;
+    string contact = 4;
+}
+
+message UpdatePvzRequest {
+    int64 id = 1;
+    string name = 2;
+    string address = 3;
+    string contact = 4;
+}
+
+message UpdatePvzResponse {}
+
+message DeletePvzByIDRequest {
+    int64 id = 1;
+}
+
+message DeletePvzByIDResponse {}
